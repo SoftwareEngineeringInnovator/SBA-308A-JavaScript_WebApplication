@@ -59,6 +59,23 @@ async function handleSearch(event) {
     console.log("CVE Result by Index:", data.vulnerabilities[9]);
     console.log("CVE Result by ID:", data.vulnerabilities[0].cve.id);
     console.log("CVE Result by Published Date:", data.vulnerabilities[0].cve.published);
-    console.log("CVE Result by Vulnerabiliti Description:",data.vulnerabilities[0].cve.descriptions[0].value);
+    console.log("CVE Result by Vulnerabiliti Description:", data.vulnerabilities[0].cve.descriptions[0].value);
     console.log("Vulnerabilities array:", data.vulnerabilities);
+
+    // API data to populate application content and features. / 20%
+    // This section display the CVE result on the page.
+    // The NVD documentation says the CVE API returns CVE records using fields like resultsPerPage, startIndex, totalResults, and a vulnerabilities array.
+
+    const resultsContainer = document.getElementById("results-container");
+
+    const cve = data.vulnerabilities[0].cve;
+
+    resultsContainer.innerHTML = `<article class="incident-card">
+        <h3>${cve.id}</h3>
+
+        <p><strong>Published:</strong> ${cve.published}</p>
+
+        <p><strong>Description:</strong>${cve.descriptions[0].value}</p>
+        
+    </article>`;
 }
