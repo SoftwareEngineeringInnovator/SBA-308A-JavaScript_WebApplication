@@ -1,11 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SBA-308A-JavaScript_WebApplication</title>
+    
+    <script type="module" src="./api.js" defer></script>
+
+    <title>SBA-308A Cyber Vulnerability Lookup</title>
 </head>
+
 <body>
-    <h1>SBA-308A-JavaScript_WebApplication</h1>
+
+    <!-- Create an engaging user experience through HTML and CSS. / 5%
+         This header keeps the cybersecurity theme from the previous skeleton.-->
+    <header class="site">
+        <div class="header">
+            <div class="logo">
+                <span class="icon">⬡</span>
+                <span class="text-logo">CYBER<strong>SHIELD</strong></span>
+            </div>
+
+            <div class="header-meta">
+                <span class="system-label">CYBERSHIELD Vulnerability Lookup</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Create an engaging user experience through HTML and CSS. / 5%
+         Page layout uses two panels: search area and results area.-->
+    <main class="page-layout">
+
+        <!-- Create user interaction with the API through a search feature. / 15%
+             This form lets the user search for software or product vulnerabilities.-->
+        <section class="form-panel">
+            <div class="panel-title">
+                <span class="panel-tag">SEARCH</span>
+                <h2>Search Vulnerabilities</h2>
+            </div>
+
+            <form id="search-form">
+                <label for="search-input">Search Software or Product:</label>
+
+                <input type="text" id="search-input" placeholder="Example: Chrome, Windows, Firefox, OpenSSL"
+                    required />
+
+                <button type="submit" class="btn-primary">
+                    Search Vulnerabilities
+                </button>
+            </form>
+        </section>
+
+    </main>
+
 </body>
+
 </html>
