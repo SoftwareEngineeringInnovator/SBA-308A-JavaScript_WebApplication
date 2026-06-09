@@ -1,5 +1,9 @@
 import { fetchVulnerabilities } from "./api.js";
 
+// Cache elements after the results section is created
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
+
 // Function creates the API results
 
 function createApiResultsSection() {
@@ -34,3 +38,14 @@ function createApiResultsSection() {
 }
 
 createApiResultsSection();
+
+// Create the user interaction with the API using the search field. / 15%
+searchForm.addEventListener("submit", handleSearch);
+
+async function handleSearch(event) {
+    event.preventDefault();
+
+    const searchTerm = searchInput.value.trim();
+
+    console.log("Search Software or Product:", searchTerm);
+}
