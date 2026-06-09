@@ -1,0 +1,188 @@
+/* Body page setup */
+body {
+    background-color: lightskyblue;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+/* style for the header */
+.site {
+  background-color: black;
+  padding: 16px 24px;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* color: white; */
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.logo strong {
+  color: darkolivegreen;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.header-meta {
+  font-size: 13px;
+  color: gray;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* title bar */
+
+.panel-title {
+  background-color: black;
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 6px 6px 0 0;
+}
+
+.panel-title h2 {
+  font-size: 15px;
+  margin: 0;
+  flex: 1;
+  letter-spacing: 1px;
+}
+
+.panel-tag {
+  background-color: lightblue;
+  color: black;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+
+/* Form information */
+
+
+/* Page layout */
+.page-layout {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+/* forms section */
+.form-panel {
+  background-color: white;
+  border: 2px solid greenyellow;
+  border-radius: 6px;
+  flex: 1;
+}
+
+/* Incident log section */
+.log-panel {
+  background-color: white;
+  border: 2px solid greenyellow;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.result-count {
+  font-size: 12px;
+  background-color: gray;
+  color: darkgrey;
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+
+.log-feed {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 200px;
+}
+
+/* label reporter information*/
+
+label {
+  font-size: 13px;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type="text"] {
+  padding: 8px 10px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+}
+
+/* assign actions for the submit and clear form buttons */
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  background-color: lightblue;
+  color: white;
+  border: 1px solid black;
+  padding: 10px 24px;
+  font-size: 15px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: blue;
+}
+
+.btn-primary:disabled {
+  background-color: gray;
+}
+
+.btn-secondary {
+  background-color: darkgrey;
+  color: grey;
+  border: 1px solid black;
+  padding: 10px 24px;
+  font-size: 15px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background-color: whitesmoke;
+}
+
+/* card style */
+.card-timestamp {
+    font-size: 12px;
+    color: gray;
+}
