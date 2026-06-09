@@ -1,3 +1,5 @@
+import { fetchVulnerabilities } from "./api.js";
+
 // Function creates the API results
 
 function createApiResultsSection() {
