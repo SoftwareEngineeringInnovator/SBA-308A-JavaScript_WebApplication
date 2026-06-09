@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <script type="module" src="./api.js" defer></script>
+
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./main.js" defer></script>
 
     <title>SBA-308A Cyber Vulnerability Lookup</title>
 </head>
@@ -41,16 +42,16 @@
             </div>
 
             <form id="search-form">
+                
                 <label for="search-input">Search Software or Product:</label>
 
-                <input type="text" id="search-input" placeholder="Example: Chrome, Windows, Firefox, OpenSSL"
-                    required />
+                <input type="text" id="search-input" placeholder="Example: Chrome, Windows, Firefox, OpenSSL" required />
 
-                <button type="submit" class="btn-primary">
-                    Search Vulnerabilities
-                </button>
+                <button type="submit" class="btn-primary">Search Vulnerabilities</button>
             </form>
         </section>
+
+        <section id="api-results-section"></section>
 
     </main>
 
