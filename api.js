@@ -39,6 +39,7 @@ export async function fetchVulnerabilities(searchTerm, startIndex = 0) {
 }
 
 // Testing API Functionality in console/inspect tool
+
 // fetchVulnerabilities("Chrome")
 //   .then((data) => {
 //     console.log(data);})
