@@ -68,14 +68,34 @@ async function handleSearch(event) {
 
     const resultsContainer = document.getElementById("results-container");
 
-    const cve = data.vulnerabilities[0].cve;
+    // Clear search results
+    resultsContainer.innerHTML = "";
+    
+    // Loop through vulnerabilities returned by the API
+    data.vulnerabilities.forEach((item) => {
 
-    resultsContainer.innerHTML = `<article class="incident-card">
-        <h3>${cve.id}</h3>
+        const cve = item.cve;
 
-        <p><strong>Published:</strong> ${cve.published}</p>
+        resultsContainer.innerHTML += `<article class="incident-card">
 
-        <p><strong>Description:</strong>${cve.descriptions[0].value}</p>
-        
-    </article>`;
+            <h3>${cve.id}</h3>
+
+            <p><strong>Published:</strong>${cve.published}</p>
+
+            <p><strong>Description:</strong>${cve.descriptions[0].value}</p>
+
+        </article>`;
+
+    });
+
+    // const cve = data.vulnerabilities[0].cve;
+
+    // resultsContainer.innerHTML = `<article class="incident-card">
+    //     <h3>${cve.id}</h3>
+
+    //     <p><strong>Published:</strong> ${cve.published}</p>
+
+    //     <p><strong>Description:</strong>${cve.descriptions[0].value}</p>
+
+    // </article>`;
 }
