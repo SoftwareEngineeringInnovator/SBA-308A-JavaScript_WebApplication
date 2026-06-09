@@ -48,4 +48,17 @@ async function handleSearch(event) {
     const searchTerm = searchInput.value.trim();
 
     console.log("Search Software or Product:", searchTerm);
+
+    // Make use of Promises and async/await syntax. / 15%
+    // Function runs by importing the Async Function - async function fetchVulnerabilities
+    const data = await fetchVulnerabilities(searchTerm);
+
+    // API will return data from the search on the vulnerability data sructure
+    console.log("API data returned:", data);
+    console.log("Total Results:", data.totalResults);
+    console.log("CVE Result by Index:", data.vulnerabilities[9]);
+    console.log("CVE Result by ID:", data.vulnerabilities[0].cve.id);
+    console.log("CVE Result by Published Date:", data.vulnerabilities[0].cve.published);
+    console.log("CVE Result by Vulnerabiliti Description:",data.vulnerabilities[0].cve.descriptions[0].value);
+    console.log("Vulnerabilities array:", data.vulnerabilities);
 }
