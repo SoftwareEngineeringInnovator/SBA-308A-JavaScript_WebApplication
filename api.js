@@ -37,3 +37,22 @@ export async function fetchVulnerabilities(searchTerm, startIndex = 0) {
   // Return the vulnerability data back to main.js.
   return data;
 }
+
+// Testing API Functionality in console/inspect tool
+// fetchVulnerabilities("Chrome")
+//   .then((data) => {
+//     console.log(data);})
+//   .catch((error) => {
+//     console.log(error);});
+
+// async function testApi() {
+
+//   const data = await fetchVulnerabilities("Chrome");
+
+//   console.log(data);
+//   console.log(data);
+//   console.log(data.vulnerabilities);
+//   console.log(data.vulnerabilities[0].cve.id);
+// }
+
+// testApi();
