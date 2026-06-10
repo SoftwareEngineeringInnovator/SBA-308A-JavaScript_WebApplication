@@ -7,12 +7,12 @@ import { API_KEY } from "./keys.js";
 
 // Use fetch API to communicate with an external web API. / 20%. Thi is used to retrieve vulnerability data
 
-// const BASE_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0";
+const BASE_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0";
 
 
 // Adding URLs to test the try and catch error while retriving data from NVD
 
-const BASE_URL = "https://services.nvd.nist.gov/rest/json/cvehistory/2.0";
+// const BASE_URL = "https://services.nvd.nist.gov/rest/json/cvehistory/2.0";
 // const BASE_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-1010218";
 
 // Use fetch API to communicate with an external web API. / 20%
