@@ -4,6 +4,7 @@ import { fetchVulnerabilities } from "./api.js";
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
 
+
 // Function creates the API results
 
 function createApiResultsSection() {
@@ -39,11 +40,17 @@ function createApiResultsSection() {
 
 createApiResultsSection();
 
+// Initiate status message by using vairable statusMessage after user click on searh vulnerabilities button
+const statusMessage = document.getElementById("status-message");
+
 // Create the user interaction with the API using the search field. / 15%
 searchForm.addEventListener("submit", handleSearch);
 
 async function handleSearch(event) {
     event.preventDefault();
+
+    // Provide status message after user click on searh vulnerabilities button
+    statusMessage.textContent = "Searching vulnerability database";
 
     const searchTerm = searchInput.value.trim();
 
@@ -91,6 +98,8 @@ async function handleSearch(event) {
         const resultCount = document.getElementById("result-count");
 
         resultCount.textContent = `${data.totalResults} results`;
+
+        statusMessage.textContent = `Showing results for: ${searchTerm}`;
 
     });
 
