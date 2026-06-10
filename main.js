@@ -70,7 +70,7 @@ async function handleSearch(event) {
 
     // Clear search results
     resultsContainer.innerHTML = "";
-    
+
     // Loop through vulnerabilities returned by the API
     data.vulnerabilities.forEach((item) => {
 
@@ -85,6 +85,12 @@ async function handleSearch(event) {
             <p><strong>Description:</strong>${cve.descriptions[0].value}</p>
 
         </article>`;
+
+        // Provide results found by the NVD API.
+
+        const resultCount = document.getElementById("result-count");
+
+        resultCount.textContent = `${data.totalResults} results`;
 
     });
 
