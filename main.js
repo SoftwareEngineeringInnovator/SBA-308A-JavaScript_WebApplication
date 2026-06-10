@@ -58,32 +58,41 @@ async function handleSearch(event) {
 
     // Make use of Promises and async/await syntax. / 15%
     // Function runs by importing the Async Function - async function fetchVulnerabilities
-    const data = await fetchVulnerabilities(searchTerm);
 
-    // API will return data from the search on the vulnerability data sructure
-    console.log("API data returned:", data);
-    console.log("Total Results:", data.totalResults);
-    console.log("CVE Result by Index:", data.vulnerabilities[9]);
-    console.log("CVE Result by ID:", data.vulnerabilities[0].cve.id);
-    console.log("CVE Result by Published Date:", data.vulnerabilities[0].cve.published);
-    console.log("CVE Result by Vulnerabiliti Description:", data.vulnerabilities[0].cve.descriptions[0].value);
-    console.log("Vulnerabilities array:", data.vulnerabilities);
+    // Add API error handling using try / catch
+    try {
+        const data = await fetchVulnerabilities(searchTerm);
 
-    // API data to populate application content and features. / 20%
-    // This section display the CVE result on the page.
-    // The NVD documentation says the CVE API returns CVE records using fields like resultsPerPage, startIndex, totalResults, and a vulnerabilities array.
+        // API data to populate application content and features. / 20%
+        // This section display the CVE result on the page.
+        // The NVD documentation says the CVE API returns CVE records using fields like resultsPerPage, startIndex, totalResults, and a vulnerabilities array.
+        // Cache elements after the results section is created
 
-    const resultsContainer = document.getElementById("results-container");
+        const resultsContainer = document.getElementById("results-container");
+        const resultCount = document.getElementById("result-count");
 
-    // Clear search results
-    resultsContainer.innerHTML = "";
+        // Clear search results
+        resultsContainer.innerHTML = "";
 
-    // Loop through vulnerabilities returned by the API
-    data.vulnerabilities.forEach((item) => {
+        // Provide results found by the NVD API.
 
-        const cve = item.cve;
+        resultCount.textContent = `${data.totalResults} results`;
 
-        resultsContainer.innerHTML += `<article class="incident-card">
+        statusMessage.textContent = `Showing results for: ${searchTerm}`;
+
+        if (data.totalResults === 0) {
+
+            resultsContainer.innerHTML = `<p>No vulnerabilities found.</p>`;
+
+            return;
+        }
+
+        // Loop through vulnerabilities returned by the API
+        data.vulnerabilities.forEach((item) => {
+
+            const cve = item.cve;
+
+            resultsContainer.innerHTML += `<article class="incident-card">
 
             <h3>${cve.id}</h3>
 
@@ -93,15 +102,23 @@ async function handleSearch(event) {
 
         </article>`;
 
-        // Provide results found by the NVD API.
+            // API will return data from the search on the vulnerability data sructure
 
-        const resultCount = document.getElementById("result-count");
+            console.log("API data returned:", data);
+            console.log("Total Results:", data.totalResults);
+            console.log("CVE Result by Index:", data.vulnerabilities[9]);
+            console.log("CVE Result by ID:", data.vulnerabilities[0].cve.id);
+            console.log("CVE Result by Published Date:", data.vulnerabilities[0].cve.published);
+            console.log("CVE Result by Vulnerabiliti Description:", data.vulnerabilities[0].cve.descriptions[0].value);
+            console.log("Vulnerabilities array:", data.vulnerabilities);
+        });
 
-        resultCount.textContent = `${data.totalResults} results`;
+    } catch (error) {
+        statusMessage.textContent = "Unable to retrieve vulnerability data.";
+        console.log("API Error:", error);
+    }
 
-        statusMessage.textContent = `Showing results for: ${searchTerm}`;
 
-    });
 
     // const cve = data.vulnerabilities[0].cve;
 
