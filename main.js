@@ -52,13 +52,23 @@ const nextButton = document.getElementById("next-button");
 previousButton.addEventListener("click", handlePreviousPage);
 nextButton.addEventListener("click", handleNextPage);
 
-// Function for pagination buttons
+// Functions for pagination buttons - handleNextPage and handlePreviousPage
 function handleNextPage() {
-    console.log("Next button clicked");
+    
+    // The vulnerability result will provide firts 10 result and when the user click "Next - button" it will provide the next 10 items
+    currentStartIndex += 10;
+
+    console.log("Next Page Start Index:", currentStartIndex);
+
+    // console.log("Next button clicked");
 }
 
+// The vulnerability result will provide firts 10 result and when the user click "Next - button" it will provide the next 10 items
 function handlePreviousPage() {
-    console.log("Previous button clicked");
+    
+    console.log("Previous Page Start Index:", currentStartIndex);
+
+    // console.log("Previous button clicked");
 }
 
 // Initiate status message by using vairable statusMessage after user click on searh vulnerabilities button
