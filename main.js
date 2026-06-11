@@ -160,6 +160,7 @@ async function handleSearch(event) {
         </article>`;
 
             // API will return data from the search on the vulnerability data sructure
+            // Console/Inspect tool tracking and testing section
 
             console.log("API data returned:", data);
             console.log("Total Results:", data.totalResults);
