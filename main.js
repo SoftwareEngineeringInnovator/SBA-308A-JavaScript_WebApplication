@@ -54,7 +54,7 @@ nextButton.addEventListener("click", handleNextPage);
 
 // Functions for pagination buttons - handleNextPage and handlePreviousPage
 function handleNextPage() {
-    
+
     // The vulnerability result will provide firts 10 result and when the user click "Next - button" it will provide the next 10 items
     currentStartIndex += 10;
 
@@ -65,7 +65,7 @@ function handleNextPage() {
 
 // The vulnerability result will provide firts 10 result and when the user click "Next - button" it will provide the next 10 items
 function handlePreviousPage() {
-    
+
     console.log("Previous Page Start Index:", currentStartIndex);
 
     // console.log("Previous button clicked");
@@ -87,12 +87,12 @@ async function handleSearch(event) {
     const searchTerm = searchInput.value.trim();
 
     currentSearchTerm = searchTerm;
-
     console.log(currentSearchTerm);
-    console.log(currentStartIndex);
-    //Pagination
 
     currentStartIndex = 0;
+    console.log(currentStartIndex);
+
+    //Pagination
 
     console.log("Search Software or Product:", searchTerm);
 
