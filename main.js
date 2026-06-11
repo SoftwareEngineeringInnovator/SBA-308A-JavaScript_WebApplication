@@ -52,22 +52,39 @@ const nextButton = document.getElementById("next-button");
 previousButton.addEventListener("click", handlePreviousPage);
 nextButton.addEventListener("click", handleNextPage);
 
+// Async function loading page
+async function loadPage() {
+
+    const data =
+        await fetchVulnerabilities(
+            currentSearchTerm,
+            currentStartIndex
+        );
+
+    console.log("Current Page Data:", data);
+
+}
+
 // Functions for pagination buttons - handleNextPage and handlePreviousPage
-function handleNextPage() {
+async function handleNextPage() {
 
     // The vulnerability result will provide firts 10 result and when the user click "Next - button" it will provide the next 10 items
     currentStartIndex += 10;
 
     console.log("Next Page Start Index:", currentStartIndex);
 
+    // Async loading page
+    await loadPage();
     // console.log("Next button clicked");
 }
 
 // The vulnerability result will provide firts 10 result and when the user click "Next - button" it will provide the next 10 items
-function handlePreviousPage() {
+async function handlePreviousPage() {
 
     console.log("Previous Page Start Index:", currentStartIndex);
 
+    // Async loading page
+    await loadPage();
     // console.log("Previous button clicked");
 }
 
