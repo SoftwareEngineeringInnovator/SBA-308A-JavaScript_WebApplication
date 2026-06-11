@@ -1,5 +1,9 @@
 import { fetchVulnerabilities } from "./api.js";
 
+// Pagination Variables - Variables keep track of the Current search term and the current page position
+let currentSearchTerm = "";
+let currentStartIndex = 0;
+
 // Cache elements after the results section is created
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
@@ -40,6 +44,23 @@ function createApiResultsSection() {
 
 createApiResultsSection();
 
+// Pagination buttons:
+const previousButton = document.getElementById("previous-button");
+const nextButton = document.getElementById("next-button");
+
+// Event Listener for Pagination buttons
+previousButton.addEventListener("click", handlePreviousPage);
+nextButton.addEventListener("click", handleNextPage);
+
+// Function for pagination buttons
+function handleNextPage() {
+    console.log("Next button clicked");
+}
+
+function handlePreviousPage() {
+    console.log("Previous button clicked");
+}
+
 // Initiate status message by using vairable statusMessage after user click on searh vulnerabilities button
 const statusMessage = document.getElementById("status-message");
 
@@ -52,7 +73,16 @@ async function handleSearch(event) {
     // Provide status message after user click on searh vulnerabilities button
     statusMessage.textContent = "Searching vulnerability database";
 
+    //Pagination
     const searchTerm = searchInput.value.trim();
+
+    currentSearchTerm = searchTerm;
+
+    console.log(currentSearchTerm);
+    console.log(currentStartIndex);
+    //Pagination
+
+    currentStartIndex = 0;
 
     console.log("Search Software or Product:", searchTerm);
 
